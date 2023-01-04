@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+body {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    background-color: #5972dd;
+}
+.container {
+    margin: 0 auto;
+    margin-top: 15vh;
+    width: 50%;
+    height: 90vh;
+    background-color: white;
+    box-shadow: 0px 0px 25px rgb(0, 0, 0,0.2);
+    border-radius: 5% 5% 0% 0%;
+}
+
+.container > .mainText {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10vh;
+}
+
+.container > div > .texts > h1{
+    color: #67676c;
+    font-size: 2.5vw;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+.container > div > .texts > p{
+    color: #617ae6;
+    font-size: 1.6vw;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 600;
+}
+.texts {
+    margin-left: 5vw;
+}
+.texts > #date {
+    margin-bottom: 3vh;
+}
+
+.plusBtn {
+    width: 10%;
+    height: 35%;
+    border-radius: 50%;
+    background-color: #617ae6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 5vw;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.plusBtn > div {
+    width: 2vw;
+    height: 0.4vh;
+    background-color: white;
+    border-radius: 10px;
+}
+.plusBtn > div:last-child {
+    transform: rotate(90deg);
+    margin-top: -0.5vh;
+}
+
+/* List 부분 */
+
+.list-form > li > input {
+    /* visibility: hidden; */
+    display: none;
+}
+.check label > div {
+    width: 1.5vw;
+    height: 3vh;
+    border: 3px solid grey;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+}
+
+.check label > div::before,
+.check label > div::after {
+    content: '';
+    position: absolute;
+    background-color: #5c76e5;
+    transform: scaleX(0);
+    opacity: 0;
+    transition: transform 250ms ease-in-out;
+}
+.check label div::before {
+    top: 5px;
+    left: 2px;
+    width: 20px;
+    height: 4px;
+    border-radius: 10px;
+    rotate: 50deg;
+    transform-origin : 0% 50%;
+}
+.check label div::after {
+    top: 20px;
+    left: -26px;
+    width: 40px;
+    height: 4px;
+    border-radius: 10px;
+    rotate: 130deg;
+    transform-origin : 100% 50%;
+    transition-delay: 100ms;
+}
+.list-form > li > input:checked + .check > label div:before,
+.list-form > li > input:checked + .check > label div:after {
+    transform:scaleX(1);
+    background-color: #5c76e5;
+    opacity: 1;
+}
+.list-form > li > input:checked + .check > label div:after 
++ .list-form > li > input:checked + .check > label div::before {
+    transition-delay: 100ms;
+    transition-timing-function: none;
+
+}
+.list-form > li {
+    margin-left: 10%;
+    height: 10vh;
+    width: 80%;
+    display: flex;
+    align-items: center;
+}
+.list-form > li > .line{
+    width: 80%;
+    height: 50%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.list-form > li > .line > p{
+    width: 100%;
+    height: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    color: #636368;
+    font-size: 1.9vw;
+    margin-left: 2vw;
+    font-weight: 600;
+    transition: 0.2;
+}
+.list-form > li > .line > div {
+    width: 100%;
+    height: 2px;
+    border-radius: 5px;
+    background-color: gray;
+    margin-left: 2vw;
+    transition: 0.2s;
+}
+.list-form > li > .Xbtn {
+    /* float: right; */
+    margin-left: 3vw;
+    width: 5%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.list-form > li > .Xbtn > div {
+    width: 100%;
+    height: 10%;
+    border-radius: 10px;
+    background-color: #444137;
+    transition: 0.1s;
+}
+
+
+.list-form > li > .Xbtn > div:first-child {
+    transform: rotate(135deg);
+}
+.list-form > li > .Xbtn > div:last-child {
+    margin-top: -0.5vh;
+    transform: rotate(45deg);
+}
+
+.list-form > li > .Xbtn:hover > div {
+    background-color: red;
+}
+
+
+.list-form > li > input:checked ~ .line > div {
+    z-index: 2;
+    transform: translateY(-2.4vh);
+}
+.list-form > li > input:checked ~ .line > p {
+    opacity: 0.8;
+}
+.inputText {
+    position: absolute;
+    left: 40vw;
+    top: 32vh;
+    visibility: hidden;
+    transition: 0.3s;
+}
+.inputText > input{
+    width: 400px;
+    height: 40px;
+    font-size: 15px;
+    border: 0;
+    border-radius: 15px;
+    outline: none;
+    padding-left: 10px;
+    background-color: rgb(233, 233, 233);
+}
